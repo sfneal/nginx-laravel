@@ -11,7 +11,7 @@ COPY ./command.sh /scripts/command.sh
 COPY default.conf /etc/nginx/conf.d/default.conf
 
 # Make Webroot directory
-RUN mkdir /webroot/ && mkdir /webroot/letsencrypt/
+RUN mkdir /webroot/ && mkdir /webroot/certbot/
 
 # Download recommended TLS parameters
 RUN mkdir /etc/nginx/conf/ \
