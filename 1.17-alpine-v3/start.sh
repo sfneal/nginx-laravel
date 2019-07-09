@@ -9,8 +9,7 @@ then
 
     # Download certs from AWS S3
     awss3 sync --bucket ${aws_s3_bucket} \
-        --local_path /etc/letsencrypt/live/ \
-        --remote_path /live/ \
+        --local_path /etc/letsencrypt/ \
         --remote_source
 else
     # Make directory for dummy certificates
