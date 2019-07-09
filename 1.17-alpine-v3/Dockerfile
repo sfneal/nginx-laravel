@@ -14,7 +14,11 @@ ENV aws_region_name=""
 RUN mkdir /webroot/ && mkdir /webroot/certbot/
 
 # Update OS then install openssl, curl
-RUN apk update && apk add bash curl openssl python3
+RUN apk update && apk add \
+    bash \
+    curl \
+    openssl \
+    python3
 
 # Install replace_domain & awsutils-s3
 RUN pip3 install --upgrade pip && pip3 install replace_domain awsutils-s3>=0.3.9
