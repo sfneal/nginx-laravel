@@ -11,16 +11,16 @@ then
     awss3 sync --bucket ${aws_s3_bucket} \
         --local_path /etc/letsencrypt/ \
         --remote_source
-else
-    # Make directory for dummy certificates
-    # Create dummy certificate for ${domain}
-    echo "Creating dummy certificate for ${domain}"
-    mkdir -m 777 -p /etc/letsencrypt/live/${domain}/ \
-        && openssl req -x509 -nodes -newkey rsa:1024 -days 1 \
-            -keyout "/etc/letsencrypt/live/${domain}/privkey.pem" \
-            -out "/etc/letsencrypt/live/${domain}/fullchain.pem" \
-            -subj "/CN=localhost"
 fi
+
+# Make directory for dummy certificates
+# Create dummy certificate for ${domain}
+echo "Creating dummy certificate for ${domain}"
+mkdir -m 777 -p /etc/letsencrypt/live/${domain}/ \
+    && openssl req -x509 -nodes -newkey rsa:1024 -days 1 \
+        -keyout "/etc/letsencrypt/live/${domain}/privkey.pem" \
+        -out "/etc/letsencrypt/live/${domain}/fullchain.pem" \
+        -subj "/CN=localhost"
 
 # Start Nginx service
 nginx -g "daemon off;"
