@@ -20,7 +20,7 @@ RUN apk update && apk add bash curl openssl python3
 RUN pip3 install --upgrade pip && pip3 install replace_domain awsutils-s3>=0.3.9
 
 # Copy configuration
-COPY ./command.sh /scripts/command.sh
+COPY ./start.sh /scripts/start.sh
 COPY ./aws-credentials.sh /scripts/aws-credentials.sh
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 
@@ -30,4 +30,4 @@ RUN mkdir /etc/nginx/conf/ \
     && curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot/ssl-dhparams.pem > "/etc/nginx/ssl-dhparams.pem"
 
 ENTRYPOINT ["bash"]
-CMD ["/scripts/command.sh"]
+CMD ["/scripts/start.sh"]
