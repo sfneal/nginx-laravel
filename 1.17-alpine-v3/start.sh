@@ -8,9 +8,9 @@ then
     sh /scripts/aws-credentials.sh
 
     # Download certs from AWS S3
-    awss3 download --bucket ${aws_s3_bucket} \
-        --remote_path  \
-        --local_path /etc/letsencrypt/
+    awss3 sync --bucket ${aws_s3_bucket} \
+        --local_path /etc/letsencrypt/ \
+        --remote_source
 else
     # Make directory for dummy certificates
     # Create dummy certificate for ${domain}
