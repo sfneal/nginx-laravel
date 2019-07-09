@@ -10,7 +10,7 @@ RUN apk update && apk add bash curl openssl python3 \
 
 # Copy configuration
 COPY ./command.sh /scripts/command.sh
-COPY default.conf /etc/nginx/conf.d/default.conf
+COPY ./default.conf /etc/nginx/conf.d/default.conf
 
 # Make Webroot directory
 RUN mkdir /webroot/ && mkdir /webroot/certbot/
