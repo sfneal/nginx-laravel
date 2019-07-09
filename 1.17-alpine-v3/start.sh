@@ -6,11 +6,6 @@ if [ ${aws_s3} -gt 0 ]
 then
     # Configure AWS creds
     sh /scripts/aws-credentials.sh
-
-    # Download certs from AWS S3
-    awss3 sync --bucket ${aws_s3_bucket} \
-        --local_path /etc/letsencrypt/ \
-        --remote_source
 fi
 
 # Make directory for dummy certificates
