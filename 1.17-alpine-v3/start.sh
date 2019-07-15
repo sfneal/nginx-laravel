@@ -27,7 +27,7 @@ then
         --remote_path live/${domain}/ \
         --recursive
     awss3 download --bucket ${aws_s3_bucket} \
-        --local_path /etc/letsencrypt/renewal/${domain}/ \
+        --local_path /etc/letsencrypt/renewal/${domain}.conf \
         --remote_path renewal/${domain}.conf
 fi
 
