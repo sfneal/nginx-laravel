@@ -7,9 +7,9 @@ nginx -s reload
 # Check if aws_s3 is enabled via ENV vars (if staging != 0)
 if [[ ${aws_s3} -ne 0 ]];
 then
-    echo "Staging environment enabled... skipping AWS S3 SSL certs upload."
-else
     echo "Production environment enabled... uploading SSL certs to AWS S3."
     awss3 upload --bucket ${aws_s3_bucket} \
         --local_path /etc/letsencrypt/
+else
+    echo "Staging environment enabled... skipping AWS S3 SSL certs upload."
 fi
