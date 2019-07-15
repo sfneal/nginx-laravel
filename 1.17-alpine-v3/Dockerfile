@@ -21,7 +21,7 @@ RUN apk update && apk add \
     python3
 
 # Install replace_domain & awsutils-s3
-RUN pip3 install --upgrade pip && pip3 install replace_domain awsutils-s3>=0.3.9
+RUN pip3 install --upgrade pip && pip3 install replace_domain awsutils-s3>=0.3.11
 
 # Copy configuration
 COPY ./aws-credentials.sh /scripts/aws-credentials.sh
