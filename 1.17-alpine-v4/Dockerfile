@@ -6,6 +6,9 @@ FROM nginx:1.17-alpine
 # Domain environment variable
 ENV domain=example.com
 
+# API enabling
+ENV api_enabled=0
+
 # AWS S3 creditentials
 ENV aws_s3=0
 ENV aws_s3_bucket=""
@@ -31,6 +34,7 @@ COPY ./aws-credentials.sh /scripts/aws-credentials.sh
 COPY ./start.sh /scripts/start.sh
 COPY ./reload.sh /scripts/reload.sh
 COPY ./default.conf /etc/nginx/conf.d/default.conf
+COPY ./sites-scripts/ /sites-scripts/
 
 # Copy flask webserver config from flask-server
 COPY --from=flask-server /etc/nginx/conf.d/app.conf /etc/nginx/conf.d/app.conf
