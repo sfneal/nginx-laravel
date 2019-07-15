@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Replace $DOMAIN placeholder in default.conf with real domain
 replace_domain --domain ${domain} --conf-file /etc/nginx/conf.d/default.conf
 
 if [ ${aws_s3} -gt 0 ]
