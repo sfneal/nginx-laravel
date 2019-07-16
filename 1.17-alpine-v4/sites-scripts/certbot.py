@@ -22,7 +22,7 @@ def main():
 
     # Run certify.sh for each domain
     for domain in args['domains']:
-        SystemCommand('domain={0} sh /sites-scripts/certify.sh'.format(domain))
+        SystemCommand('domain_current={0} sh /sites-scripts/certify.sh'.format(domain))
 
 
 if __name__ == '__main__':
