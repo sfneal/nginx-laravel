@@ -20,6 +20,7 @@ def main():
 
     # Run certify.sh for each domain
     for domain in args['domains']:
+        print("Creating SSL certs for {0}...".format(domain))
         os.system('domain_current={0} sh /sites-scripts/certify.sh'.format(domain))
 
 

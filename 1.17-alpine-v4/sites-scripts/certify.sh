@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-echo "Creating SSL certs for ${domain_current}..."
-
 # Copy nginx config template
 cp /sites-scripts/template.conf /etc/nginx/conf.d/${domain_current}.conf
 
