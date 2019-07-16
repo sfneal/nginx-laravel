@@ -4,7 +4,7 @@
 cp /sites-scripts/template.conf /etc/nginx/conf.d/${domain_current}.conf
 
 # Replace $DOMAIN placeholder in default.conf with real domain_current
-replace_domain_current --domain_current ${domain_current} --conf-file /etc/nginx/conf.d/${domain_current}.conf
+replace_domain --domain ${domain_current} --conf-file /etc/nginx/conf.d/${domain_current}.conf
 
 # Make directory for live SSL certs
 mkdir -m 777 -p /etc/letsencrypt/live/${domain_current}/
