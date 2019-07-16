@@ -14,9 +14,8 @@ replace_domain --domain ${domain_current} --conf-file /etc/nginx/conf.d/${domain
 mkdir -m 777 -p /etc/letsencrypt/live/${domain_current}/
 mkdir -m 777 -p /etc/letsencrypt/renewal/${domain_current}/
 
-# Either download existing certs from AWS or create dummy certs
-if [[ ${aws_s3} -ne 0 ]] && [[ ${aws_s3_download} -ne 0 ]];
-then
+# Download existing certs from AWS
+if [[ ${aws_s3} -ne 0 ]] && [[ ${aws_s3_download} -ne 0 ]]; then
     # Pull certs from AWS S3
     # if the certs don't exist, dummy certs should remain?
     awss3 download --bucket ${aws_s3_bucket} \
@@ -37,13 +36,20 @@ then
     ln -s /etc/letsencrypt/archive/${domain_current}/privkey1.pem /etc/letsencrypt/live/${domain_current}/privkey.pem
 else
     echo "AWS disabled... skipping existing SSL certs download"
+fi
 
+# Create dummy ssl certs if the fullchain.pem and privkey.pem files are missing
+fullchain=/etc/letsencrypt/archive/${domain_current}/fullchain1.pem
+privkey=/etc/letsencrypt/archive/${domain_current}/privkey1.pem
+if [[ ! -f ${fullchain} ]] || [[ ! -f ${privkey} ]]; then
     # Create dummy certificate for ${domain_current}
+    echo "Missing SSL certs for ${domain_current}: fullchain1.pem privkey1.pem"
     echo "Creating dummy certificate for ${domain_current}..."
     openssl req -x509 -nodes -newkey rsa:1024 -days 1 \
         -keyout "/etc/letsencrypt/live/${domain_current}/privkey.pem" \
         -out "/etc/letsencrypt/live/${domain_current}/fullchain.pem" \
         -subj "/CN=localhost"
 fi
+
 
 echo "##################################"
