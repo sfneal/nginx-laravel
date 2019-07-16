@@ -19,7 +19,7 @@ openssl req -x509 -nodes -newkey rsa:1024 -days 1 \
     -out "/etc/letsencrypt/live/${domain}/fullchain.pem" \
     -subj "/CN=localhost"
 
-if [ ${aws_s3} -gt 0 ]
+if [[ ${aws_s3} -gt 0 ]]
 then
     # Pull certs from AWS S3
     # if the certs don't exist, dummy certs should remain?

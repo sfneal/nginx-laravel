@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-if [ ${aws_s3} -gt 0 ]
+if [[ ${aws_s3} -gt 0 ]]
 then
     # Configure AWS creds
     sh /scripts/aws-credentials.sh
 fi
 
 # Conditionally include app.conf with API exposure
-if [ ${api_enabled} -gt 0 ]
+if [[ ${api_enabled} -gt 0 ]]
 then
     echo "API serving is enabled..."
 else
