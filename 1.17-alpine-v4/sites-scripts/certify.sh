@@ -25,6 +25,10 @@ then
     # if the certs don't exist, dummy certs should remain?
     echo "Pulling certs from AWS S3"
     awss3 download --bucket ${aws_s3_bucket} \
+        --local_path /etc/letsencrypt/archive/${domain_current}/ \
+        --remote_path archive/${domain_current}/ \
+        --recursive
+    awss3 download --bucket ${aws_s3_bucket} \
         --local_path /etc/letsencrypt/live/${domain_current}/ \
         --remote_path live/${domain_current}/ \
         --recursive
