@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sh ./build.sh
+
 docker push stephenneal/nginx-laravel:1.15-alpine
 docker push stephenneal/nginx-laravel:1.16-alpine
 docker push stephenneal/nginx-laravel:1.17
