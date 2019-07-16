@@ -11,6 +11,8 @@ ENV api_enabled=0
 
 # AWS S3 creditentials
 ENV aws_s3=0
+ENV aws_s3_upload=0
+ENV aws_s3_download=0
 ENV aws_s3_bucket=""
 ENV aws_access_key_id=""
 ENV aws_secret_access_key=""
