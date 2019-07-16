@@ -32,9 +32,7 @@ RUN apk update && apk add \
 RUN pip3 install --upgrade pip && pip3 install replace_domain awsutils-s3>=0.3.11
 
 # Copy configuration
-COPY ./aws-credentials.sh /scripts/aws-credentials.sh
-COPY ./start.sh /scripts/start.sh
-COPY ./reload.sh /scripts/reload.sh
+COPY ./scripts/ /scripts/
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 COPY ./sites-scripts/ /sites-scripts/
 
