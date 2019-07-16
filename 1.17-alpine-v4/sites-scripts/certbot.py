@@ -1,8 +1,6 @@
 import os
 from argparse import ArgumentParser
 
-from dirutility import SystemCommand
-
 
 def main():
     # Declare argparse argument descriptions
@@ -22,7 +20,7 @@ def main():
 
     # Run certify.sh for each domain
     for domain in args['domains']:
-        SystemCommand('domain_current={0} sh /sites-scripts/certify.sh'.format(domain))
+        os.system('domain_current={0} sh /sites-scripts/certify.sh'.format(domain))
 
 
 if __name__ == '__main__':
