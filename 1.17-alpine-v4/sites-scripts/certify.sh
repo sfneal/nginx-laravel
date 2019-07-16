@@ -29,11 +29,24 @@ if [[ ${aws_s3} -ne 0 ]] && [[ ${aws_s3_download} -ne 0 ]]; then
     # Fix symbolic links between 'live' and 'archive' files
     # Find each file ending with '.pem' in the live directory
     # Relink live => archive
-    echo "Fixing symbolic links..."
-    ln -s /etc/letsencrypt/archive/${domain_current}/cert1.pem /etc/letsencrypt/live/${domain_current}/cert.pem
-    ln -s /etc/letsencrypt/archive/${domain_current}/chain1.pem /etc/letsencrypt/live/${domain_current}/chain.pem
-    ln -s /etc/letsencrypt/archive/${domain_current}/fullchain1.pem /etc/letsencrypt/live/${domain_current}/fullchain.pem
-    ln -s /etc/letsencrypt/archive/${domain_current}/privkey1.pem /etc/letsencrypt/live/${domain_current}/privkey.pem
+    cert_names="cert chain fullchain privkey"
+    for pem in ${cert_names}; do
+        # Create live and archive file names
+        live_file=/etc/letsencrypt/live/${domain_current}/${pem}.pem
+        archive_file=/etc/letsencrypt/archive/${domain_current}/${pem}1.pem
+
+        # Delete existing symbolic link file
+        if [[ -f ${live_file} ]]; then
+            rm -rf ${live_file}
+            echo "Deleted: ${live_file}"
+        fi
+
+        # Link archive file to live file
+        if [[ -f ${archive_file} ]]; then
+            ln -s ${archive_file} ${live_file}
+            echo "Link: ${archive_file} => ${live_file}"
+        fi
+    done
 else
     echo "AWS disabled... skipping existing SSL certs download"
 fi
