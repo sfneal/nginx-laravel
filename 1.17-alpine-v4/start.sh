@@ -15,7 +15,10 @@ else
     rm /etc/nginx/conf.d/app.conf
 fi
 
-python3 /sites-scripts/certbot.py --domains "${domain}"
+# Download/create SSL certs for each domain
+for d in ${domain}; do
+    sh /sites-scripts/certify.sh ${d}
+done
 
 # Start Nginx service
 nginx -g "daemon off;"
