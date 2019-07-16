@@ -6,6 +6,7 @@ then
     sh /scripts/aws-credentials.sh
 fi
 
+# Conditionally include app.conf with API exposure
 if [ ${api_enabled} -gt 0 ]
 then
     echo "API serving is enabled..."
