@@ -37,7 +37,7 @@ COPY ./default.conf /etc/nginx/conf.d/default.conf
 COPY ./sites-scripts/ /sites-scripts/
 
 # Copy flask webserver config from flask-server
-COPY --from=flask-server /etc/nginx/conf.d/app.conf /etc/nginx/conf.d/app.conf
+COPY --from=flask-server /etc/nginx/conf.d/app.conf /etc/nginx/conf.d/api.conf
 
 # Download recommended TLS parameters
 RUN mkdir /etc/nginx/conf/ \

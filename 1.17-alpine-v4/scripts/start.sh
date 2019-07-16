@@ -12,7 +12,7 @@ then
     echo "API serving is enabled..."
 else
     echo "API serving is disabled..."
-    rm /etc/nginx/conf.d/app.conf
+    rm /etc/nginx/conf.d/api.conf
 fi
 
 # Download/create SSL certs for each domain
