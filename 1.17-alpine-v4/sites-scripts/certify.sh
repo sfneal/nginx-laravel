@@ -19,7 +19,6 @@ if [[ ${aws_s3} -ne 0 ]] && [[ ${aws_s3_download} -ne 0 ]];
 then
     # Pull certs from AWS S3
     # if the certs don't exist, dummy certs should remain?
-    echo "Pulling certs from AWS S3"
     awss3 download --bucket ${aws_s3_bucket} \
         --local_path /etc/letsencrypt/archive/${domain_current}/ \
         --remote_path archive/${domain_current}/ \
