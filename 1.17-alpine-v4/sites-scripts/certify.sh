@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Creating SSL certificate for ${domain_current}..."
+
 # Copy nginx config template
 cp /sites-scripts/template.conf /etc/nginx/conf.d/${domain_current}.conf
 
@@ -11,7 +13,7 @@ mkdir -m 777 -p /etc/letsencrypt/live/${domain_current}/
 mkdir -m 777 -p /etc/letsencrypt/renewal/${domain_current}/
 
 # Create dummy certificate for ${domain_current}
-echo "Creating dummy certificate for ${domain_current}"
+echo "Creating dummy certificate for ${domain_current}..."
 openssl req -x509 -nodes -newkey rsa:1024 -days 1 \
     -keyout "/etc/letsencrypt/live/${domain_current}/privkey.pem" \
     -out "/etc/letsencrypt/live/${domain_current}/fullchain.pem" \
@@ -29,4 +31,8 @@ then
     awss3 download --bucket ${aws_s3_bucket} \
         --local_path /etc/letsencrypt/renewal/${domain_current}.conf \
         --remote_path renewal/${domain_current}.conf
+else
+    echo "AWS disabled... skipping existing SSL certs download"
 fi
+
+echo "##################################"
