@@ -18,7 +18,7 @@ fi
 # Replace $VALIDATION_DOMAIN placeholder with env variable value
 replace_domain --domain ${validation_domain} \
     --conf-file /etc/nginx/conf.d/default.conf \
-    --placeholder '$VALIDATION_DOMAIN'
+    --placeholder '@VALIDATION_DOMAIN'
 
 # Download/create SSL certs for each domain
 for d in ${domain}; do
