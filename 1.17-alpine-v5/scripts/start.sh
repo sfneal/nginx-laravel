@@ -15,7 +15,7 @@ else
     rm /etc/nginx/conf.d/api.conf
 fi
 
-# Replace $VALIDATION_DOMAIN placeholder with env variable value
+# Replace @VALIDATION_DOMAIN placeholder with env variable value
 replace_domain --domain ${validation_domain} \
     --conf-file /etc/nginx/conf.d/default.conf \
     --placeholder '@VALIDATION_DOMAIN'
@@ -26,4 +26,6 @@ for d in ${domain}; do
 done
 
 # Start Nginx service
+
+nginx -t
 nginx -g "daemon off;"

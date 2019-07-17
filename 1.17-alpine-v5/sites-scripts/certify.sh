@@ -8,7 +8,9 @@ echo "Creating SSL certificate for ${domain_current}..."
 cp /sites-scripts/template.conf /etc/nginx/conf.d/${domain_current}.conf
 
 # Replace $DOMAIN placeholder in default.conf with real domain_current
-replace_domain --domain ${domain_current} --conf-file /etc/nginx/conf.d/${domain_current}.conf
+replace_domain --domain ${domain_current} \
+    --conf-file /etc/nginx/conf.d/${domain_current}.conf \
+    --placeholder @DOMAIN_NAME
 
 # Make directory for live SSL certs
 mkdir -m 777 -p /etc/letsencrypt/live/${domain_current}/
