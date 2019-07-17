@@ -19,8 +19,8 @@ ENV aws_access_key_id=""
 ENV aws_secret_access_key=""
 ENV aws_region_name=""
 
-# Make Webroot directory
-RUN mkdir /webroot/ && mkdir /webroot/certbot/
+# Make Webroot & nginx directory
+RUN mkdir /webroot/ && mkdir /webroot/certbot/ && mkdir /etc/nginx/conf/
 
 # Update OS then install openssl, curl
 RUN apk update && apk add \
@@ -30,7 +30,11 @@ RUN apk update && apk add \
     python3
 
 # Install replace_domain & awsutils-s3
-RUN pip3 install --upgrade pip && pip3 install replace_domain>=1.0.2 awsutils-s3>=0.3.11
+RUN pip3 install --upgrade pip && pip3 install replace_domain>=1.0.4 awsutils-s3>=0.3.11
+
+# Download recommended TLS parameters
+RUN curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/options-ssl-nginx.conf > "/etc/nginx/options-ssl-nginx.conf" \
+    && curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot/ssl-dhparams.pem > "/etc/nginx/ssl-dhparams.pem"
 
 # Copy configuration
 COPY ./scripts/ /scripts/
@@ -39,11 +43,6 @@ COPY ./sites-scripts/ /sites-scripts/
 
 # Copy flask webserver config from flask-server
 COPY --from=flask-server /etc/nginx/conf.d/app.conf /etc/nginx/conf.d/api.conf
-
-# Download recommended TLS parameters
-RUN mkdir /etc/nginx/conf/ \
-    && curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/options-ssl-nginx.conf > "/etc/nginx/options-ssl-nginx.conf" \
-    && curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot/ssl-dhparams.pem > "/etc/nginx/ssl-dhparams.pem"
 
 ENTRYPOINT ["bash"]
 CMD ["/scripts/start.sh"]
