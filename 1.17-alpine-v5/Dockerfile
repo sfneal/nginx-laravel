@@ -30,7 +30,7 @@ RUN apk update && apk add \
     python3
 
 # Install replace_domain & awsutils-s3
-RUN pip3 install --upgrade pip && pip3 install replace_domain>=1.0.4 awsutils-s3>=0.3.11
+RUN pip3 install --upgrade pip && pip3 install replace_domain>=1.0.4 awsutils-s3>=0.3.12
 
 # Download recommended TLS parameters
 RUN curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/options-ssl-nginx.conf > "/etc/nginx/options-ssl-nginx.conf" \
