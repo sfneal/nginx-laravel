@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
+# Configure AWS creds
 if [[ ${aws_s3} -gt 0 ]]
 then
-    # Configure AWS creds
     sh /scripts/aws-credentials.sh
 fi
 
@@ -14,6 +14,11 @@ else
     echo "API serving is disabled..."
     rm /etc/nginx/conf.d/api.conf
 fi
+
+# Replace $VALIDATION_DOMAIN placeholder with env variable value
+replace_domain --domain ${validation_domain} \
+    --conf-file /etc/nginx/conf.d/default.conf \
+    --placeholder '$VALIDATION_DOMAIN'
 
 # Download/create SSL certs for each domain
 for d in ${domain}; do

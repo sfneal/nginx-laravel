@@ -5,6 +5,7 @@ FROM nginx:1.17-alpine
 
 # Domain environment variable
 ENV domain=example.com
+ENV validation_domain=validation.example.com
 
 # API enabling
 ENV api_enabled=0
@@ -29,7 +30,7 @@ RUN apk update && apk add \
     python3
 
 # Install replace_domain & awsutils-s3
-RUN pip3 install --upgrade pip && pip3 install replace_domain awsutils-s3>=0.3.11
+RUN pip3 install --upgrade pip && pip3 install replace_domain>=1.0.2 awsutils-s3>=0.3.11
 
 # Copy configuration
 COPY ./scripts/ /scripts/
