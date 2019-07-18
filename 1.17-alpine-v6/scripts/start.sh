@@ -39,6 +39,5 @@ for d in ${domain}; do
 done
 
 # Start Nginx service
-
 nginx -t
 nginx -g "daemon off;"
