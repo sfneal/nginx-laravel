@@ -17,3 +17,5 @@ replace_domain --domain ${domain_current} \
 replace_domain --domain ${app_current} \
     --conf-file /etc/nginx/conf.d/${domain_current}.conf \
     --placeholder @APP
+
+echo "Domain ${domain_current} directs traffic to the '${app_current}' service"
