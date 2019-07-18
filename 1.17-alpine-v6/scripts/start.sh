@@ -22,8 +22,20 @@ replace_domain --domain ${validation_domain} \
 
 # Download/create SSL certs for each domain
 for d in ${domain}; do
-    sh /sites-scripts/enable-conf.sh ${d}
-    sh /sites-scripts/certify.sh ${d}
+    url_service=(${d//:/ })
+
+    # Enable .conf file
+    if [[ ${url_service[1]} ]] ;
+    then
+        # Application service name is provided
+        sh /sites-scripts/enable-conf.sh ${url_service[0]} ${url_service[1]}
+    else
+        # Assuming application service name is 'app'
+        sh /sites-scripts/enable-conf.sh ${url_service[0]} 'app'
+    fi
+
+    # Enable SSL certs
+    sh /sites-scripts/certify.sh ${url_service[0]}
 done
 
 # Start Nginx service

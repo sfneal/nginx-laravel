@@ -3,8 +3,8 @@ FROM stephenneal/nginx-flask:1.17-alpine as flask-server
 
 FROM nginx:1.17-alpine
 
-# Domain environment variable
-ENV domain=example.com
+# Domain environment variable (domain:service)
+ENV domain=example.com:app
 ENV validation_domain=validation.example.com
 
 # API enabling
