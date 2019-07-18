@@ -2,15 +2,7 @@
 
 domain_current=${1}
 
-echo "Creating SSL certificate for ${domain_current}..."
-
-# Copy nginx config template
-cp /sites-scripts/template.conf /etc/nginx/conf.d/${domain_current}.conf
-
-# Replace $DOMAIN placeholder in default.conf with real domain_current
-replace_domain --domain ${domain_current} \
-    --conf-file /etc/nginx/conf.d/${domain_current}.conf \
-    --placeholder @DOMAIN_NAME
+echo "## Creating SSL certificate for ${domain_current}..."
 
 # Make directory for live SSL certs
 mkdir -m 777 -p /etc/letsencrypt/live/${domain_current}/

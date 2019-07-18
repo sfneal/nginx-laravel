@@ -22,6 +22,7 @@ replace_domain --domain ${validation_domain} \
 
 # Download/create SSL certs for each domain
 for d in ${domain}; do
+    sh /sites-scripts/enable-conf.sh ${d}
     sh /sites-scripts/certify.sh ${d}
 done
 
