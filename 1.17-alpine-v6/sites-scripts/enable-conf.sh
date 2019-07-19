@@ -2,6 +2,7 @@
 
 domain_current=${1}
 app_current=${2}
+root_current=${2}
 
 echo "## Enabling nginx .conf for ${domain_current}..."
 
@@ -17,5 +18,10 @@ replace_domain --domain ${domain_current} \
 replace_domain --domain ${app_current} \
     --conf-file /etc/nginx/conf.d/${domain_current}.conf \
     --placeholder @APP
+
+# Replace @ROOT placeholder in {domain}.conf with service name
+replace_domain --domain ${root_current} \
+    --conf-file /etc/nginx/conf.d/${domain_current}.conf \
+    --placeholder @ROOT
 
 echo "Domain ${domain_current} directs traffic to the '${app_current}' service"

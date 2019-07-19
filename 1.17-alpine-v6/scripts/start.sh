@@ -20,19 +20,26 @@ replace_domain --domain ${validation_domain} \
     --conf-file /etc/nginx/conf.d/default.conf \
     --placeholder '@VALIDATION_DOMAIN'
 
-# Download/create SSL certs for each domain
+# Enable nginx configurations for each site
 for d in ${domain}; do
-    url_service=(${d//:/ })
+    url_service_root=(${d//:/ })
 
-    # Enable .conf file
-    if [[ ${url_service[1]} ]] ;
+    # @APP placeholder
+    if [[ ! ${url_service[1]} ]] ;
     then
-        # Application service name is provided
-        sh /sites-scripts/enable-conf.sh ${url_service[0]} ${url_service[1]}
-    else
-        # Assuming application service name is 'app'
-        sh /sites-scripts/enable-conf.sh ${url_service[0]} 'app'
+        # Assuming application service name is 'app' since its not provided
+        url_service_root[1]='app'
     fi
+
+    # @ROOT placeholder
+    if [[ ! ${url_service[2]} ]] ;
+    then
+        # Assuming application service name is 'app' since its not provided
+        url_service_root[2]='/var/www/public'
+    fi
+
+    # Run enable-conf.sh
+    sh /sites-scripts/enable-conf.sh ${url_service[0]} ${url_service[1]} ${url_service[2]}
 
     # Enable SSL certs
     sh /sites-scripts/certify.sh ${url_service[0]}
