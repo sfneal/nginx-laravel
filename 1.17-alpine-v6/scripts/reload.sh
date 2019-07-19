@@ -4,7 +4,7 @@
 for d in ${domain}; do
     url_service=(${d//:/ })
 
-    sh /sites-scripts/pull-certs.sh sh ${url_service[0]}
+    sh /sites-scripts/pull-certs.sh ${url_service[0]}
 done
 
 # Reload Nginx
