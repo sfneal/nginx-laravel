@@ -2,7 +2,7 @@
 
 domain_current=${1}
 app_current=${2}
-root_current=${2}
+root_current=${3}
 
 echo "## Enabling nginx .conf for ${domain_current}..."
 

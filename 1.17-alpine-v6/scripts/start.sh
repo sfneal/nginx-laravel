@@ -25,24 +25,24 @@ for d in ${domain}; do
     url_service_root=(${d//:/ })
 
     # @APP placeholder
-    if [[ ! ${url_service[1]} ]] ;
+    if [[ ! ${url_service_root[1]} ]] ;
     then
         # Assuming application service name is 'app' since its not provided
         url_service_root[1]='app'
     fi
 
     # @ROOT placeholder
-    if [[ ! ${url_service[2]} ]] ;
+    if [[ ! ${url_service_root[2]} ]] ;
     then
         # Assuming application service name is 'app' since its not provided
         url_service_root[2]='/var/www/public'
     fi
 
     # Run enable-conf.sh
-    sh /sites-scripts/enable-conf.sh ${url_service[0]} ${url_service[1]} ${url_service[2]}
+    sh /sites-scripts/enable-conf.sh ${url_service_root[0]} ${url_service_root[1]} ${url_service_root[2]}
 
     # Enable SSL certs
-    sh /sites-scripts/certify.sh ${url_service[0]}
+    sh /sites-scripts/certify.sh ${url_service_root[0]}
 done
 
 # Start Nginx service
