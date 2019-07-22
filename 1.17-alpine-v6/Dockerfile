@@ -1,14 +1,8 @@
-FROM stephenneal/nginx-flask:1.17-alpine as flask-server
-
-
 FROM nginx:1.17-alpine
 
 # Domain environment variable (domain:service)
 ENV domain=example.com:app
 ENV validation_domain=validation.example.com
-
-# API enabling
-ENV api_enabled=0
 
 # AWS S3 creditentials
 ENV aws_s3=0
@@ -40,9 +34,6 @@ RUN curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot-ngi
 COPY ./scripts/ /scripts/
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 COPY ./sites-scripts/ /sites-scripts/
-
-# Copy flask webserver config from flask-server
-COPY --from=flask-server /etc/nginx/conf.d/app.conf /etc/nginx/conf.d/api.conf
 
 ENTRYPOINT ["bash"]
 CMD ["/scripts/start.sh"]
