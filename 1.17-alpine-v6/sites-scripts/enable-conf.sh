@@ -6,8 +6,16 @@ root_current=${3}
 
 echo "## Enabling nginx .conf for ${domain_current}..."
 
+# Use 'template-http.conf' instead of 'template-https.conf' if env var https_disabled is set to 1
+if [[ ${https_disabled} -gt 0 ]]
+then
+    template_file=/sites-scripts/template-http.conf
+else
+    template_file=/sites-scripts/template-https.conf
+fi
+
 # Copy nginx config template
-cp /sites-scripts/template.conf /etc/nginx/conf.d/${domain_current}.conf
+cp ${template_file} /etc/nginx/conf.d/${domain_current}.conf
 
 # Replace @DOMAIN placeholder in {domain}.conf with real domain_current
 replace_domain --domain ${domain_current} \
