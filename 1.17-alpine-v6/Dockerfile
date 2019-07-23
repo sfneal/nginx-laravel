@@ -1,12 +1,10 @@
 FROM alpine:latest as base
 
-# Update OS then install openssl, curl
-RUN apk update && apk add curl
+# Copy pull-tls script
+COPY ./scripts/actions/pull-tls.sh /sciprts/pull-tls.sh
 
-# Download recommended TLS parameters
-RUN mkdir /etc/nginx \
-    && curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/options-ssl-nginx.conf > "/etc/nginx/options-ssl-nginx.conf" \
-    && curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot/ssl-dhparams.pem > "/etc/nginx/ssl-dhparams.pem"
+# Update OS and install curl then pull tls certs
+RUN apk update && apk add curl && sh /sciprts/pull-tls.sh
 
 
 
