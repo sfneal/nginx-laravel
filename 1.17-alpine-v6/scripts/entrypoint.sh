@@ -3,7 +3,7 @@
 # Configure AWS creds
 if [[ ${aws_s3} -gt 0 ]]
 then
-    sh /scripts/aws-credentials.sh
+    sh /scripts/actions/aws-credentials.sh
 fi
 
 # Replace @VALIDATION_DOMAIN placeholder with env variable value
@@ -30,10 +30,10 @@ for d in ${domain}; do
     fi
 
     # Run enable-conf.sh
-    sh /sites-scripts/enable-conf.sh ${url_service_root[0]} ${url_service_root[1]} ${url_service_root[2]}
+    sh /scripts/actions/enable-conf.sh ${url_service_root[0]} ${url_service_root[1]} ${url_service_root[2]}
 
     # Enable SSL certs
-    sh /sites-scripts/certify.sh ${url_service_root[0]}
+    sh /scripts/actions/certify.sh ${url_service_root[0]}
 done
 
 # Start Nginx service
