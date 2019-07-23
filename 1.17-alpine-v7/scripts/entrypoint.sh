@@ -17,6 +17,9 @@ for d in ${domain}; do
     echo "## Creating SSL certificate for ${d}..."
     mkdir -m 777 -p /etc/letsencrypt/live/${d}/
 
+    # Download existing certs from AWS
+    sh /scripts/actions/pull-certs.sh ${d}
+
     # Run enable-conf.sh
     sh /scripts/actions/enable-conf.sh ${d} ${service} ${root}
 
