@@ -10,8 +10,12 @@ RUN apk update && apk add curl && sh /sciprts/pull-tls.sh
 
 FROM nginx:1.17-alpine
 
-# Domain environment variable (domain:service)
-ENV domain=example.com:app
+# Application domains, service/container name and root directory
+ENV domain=example.com
+ENV service=app
+ENV root=/var/www/public
+
+# Validation domain
 ENV validation_domain=validation.example.com
 
 # Disable HTTPS

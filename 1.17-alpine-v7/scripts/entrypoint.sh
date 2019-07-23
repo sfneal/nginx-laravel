@@ -13,34 +13,18 @@ replace_domain --domain ${validation_domain} \
 
 # Enable nginx configurations for each site
 for d in ${domain}; do
-    url_service_root=(${d//:/ })
-
-    # @APP placeholder
-    if [[ ! ${url_service_root[1]} ]] ;
-    then
-        # Assuming application service name is 'app' since its not provided
-        url_service_root[1]='app'
-    fi
-
-    # @ROOT placeholder
-    if [[ ! ${url_service_root[2]} ]] ;
-    then
-        # Assuming application service name is 'app' since its not provided
-        url_service_root[2]='/var/www/public'
-    fi
-
     # Make directory for live SSL certs
-    echo "## Creating SSL certificate for ${url_service_root[0]}..."
-    mkdir -m 777 -p /etc/letsencrypt/live/${url_service_root[0]}/
+    echo "## Creating SSL certificate for ${d}..."
+    mkdir -m 777 -p /etc/letsencrypt/live/${d}/
 
     # Download existing certs from AWS
-    sh /scripts/actions/pull-certs.sh ${url_service_root[0]}
+    sh /scripts/actions/pull-certs.sh ${d}
 
     # Run enable-conf.sh
-    sh /scripts/actions/enable-conf.sh ${url_service_root[0]} ${url_service_root[1]} ${url_service_root[2]}
+    sh /scripts/actions/enable-conf.sh ${d} ${service} ${root}
 
     # Enable SSL certs
-    sh /scripts/actions/certify.sh ${url_service_root[0]}
+    sh /scripts/actions/certify.sh ${d}
 done
 
 # Start Nginx service

@@ -2,9 +2,7 @@
 
 # Download new certs created by validation server from AWS S3
 for d in ${domain}; do
-    url_service=(${d//:/ })
-
-    sh /scripts/actions/pull-certs.sh ${url_service[0]}
+    sh /scripts/actions/pull-certs.sh ${d}
 done
 
 # Reload Nginx
