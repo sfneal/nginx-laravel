@@ -29,10 +29,4 @@ done
 
 # Start Nginx service
 nginx -t
-
-sleep 45
-sh /scripts/reload.sh
-
-# Reload Nginx
-nginx -t
 nginx -g "daemon off;"
