@@ -47,4 +47,4 @@ COPY ./scripts/ /scripts/
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 
 ENTRYPOINT ["bash"]
-CMD ["/scripts/entrypoint.sh"]
+CMD ["/scripts/entrypoint.sh", "/scripts/reload.sh"]
