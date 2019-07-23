@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sleep 45
+sleep 25
 
 echo "## Starting to reloading nginx server..."
 
