@@ -1,10 +1,10 @@
 FROM alpine:latest as base
 
 # Copy pull-tls script
-COPY ./scripts/actions/pull-tls.sh /sciprts/pull-tls.sh
+COPY ./scripts/actions/pull-tls.sh /scripts/pull-tls.sh
 
 # Update OS and install curl then pull tls certs
-RUN apk update && apk add curl && sh /sciprts/pull-tls.sh
+RUN apk update && apk add curl && sh /scripts/pull-tls.sh
 
 
 
