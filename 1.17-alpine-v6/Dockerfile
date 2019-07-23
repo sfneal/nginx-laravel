@@ -43,7 +43,6 @@ RUN pip3 install --upgrade pip && pip3 install replace_domain>=1.0.5 awsutils-s3
 # Copy configuration
 COPY ./scripts/ /scripts/
 COPY ./default.conf /etc/nginx/conf.d/default.conf
-COPY ./sites-scripts/ /sites-scripts/
 
 ENTRYPOINT ["bash"]
-CMD ["/scripts/start.sh"]
+CMD ["/scripts/entrypoint.sh"]
