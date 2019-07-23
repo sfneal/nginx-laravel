@@ -9,9 +9,9 @@ echo "## Enabling nginx .conf for ${domain_current}..."
 # Use 'template-http.conf' instead of 'template-https.conf' if env var https_disabled is set to 1
 if [[ ${https_disabled} -gt 0 ]]
 then
-    template_file=/sites-scripts/template-http.conf
+    template_file=/scripts/actions/template-http.conf
 else
-    template_file=/sites-scripts/template-https.conf
+    template_file=/scripts/actions/template-https.conf
 fi
 
 # Copy nginx config template
