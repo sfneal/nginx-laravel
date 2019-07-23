@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-sleep 25
-
 echo "## Starting to reloading nginx server..."
 
 # Download new certs created by validation server from AWS S3
