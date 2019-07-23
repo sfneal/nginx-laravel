@@ -29,6 +29,13 @@ for d in ${domain}; do
         url_service_root[2]='/var/www/public'
     fi
 
+    # Make directory for live SSL certs
+    echo "## Creating SSL certificate for ${url_service_root[0]}..."
+    mkdir -m 777 -p /etc/letsencrypt/live/${url_service_root[0]}/
+
+    # Download existing certs from AWS
+    sh /scripts/actions/pull-certs.sh ${url_service_root[0]}
+
     # Run enable-conf.sh
     sh /scripts/actions/enable-conf.sh ${url_service_root[0]} ${url_service_root[1]} ${url_service_root[2]}
 

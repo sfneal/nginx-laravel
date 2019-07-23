@@ -2,14 +2,6 @@
 
 domain_current=${1}
 
-echo "## Creating SSL certificate for ${domain_current}..."
-
-# Make directory for live SSL certs
-mkdir -m 777 -p /etc/letsencrypt/live/${domain_current}/
-
-# Download existing certs from AWS
-sh /sites-scripts/pull-certs.sh ${domain_current}
-
 fullchain=/etc/letsencrypt/archive/${domain_current}/fullchain1.pem
 privkey=/etc/letsencrypt/archive/${domain_current}/privkey1.pem
 cert=/etc/letsencrypt/archive/${domain_current}/cert1.pem
