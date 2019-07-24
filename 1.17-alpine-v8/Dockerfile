@@ -40,7 +40,9 @@ RUN apk update && apk add \
     python3
 
 # Install replace_domain & awsutils-s3
-RUN pip3 install --upgrade pip && pip3 install replace_domain>=1.0.5 awsutils-s3>=0.3.12
+RUN pip3 install --upgrade pip && pip3 install \
+    replace_domain>=1.0.5 \
+    awsutils-s3>=0.3.12
 
 # Copy configuration
 COPY ./scripts/ /scripts/
