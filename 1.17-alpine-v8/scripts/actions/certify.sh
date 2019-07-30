@@ -16,6 +16,8 @@ if [[ ! -f ${fullchain} ]] || [[ ! -f ${privkey} ]]; then
         -keyout "/etc/letsencrypt/live/${domain_current}/privkey.pem" \
         -out "/etc/letsencrypt/live/${domain_current}/fullchain.pem" \
         -subj "/CN=localhost"
+else
+    echo "SSL certs exist for ${domain_current}"
 fi
 
 # Remove renewal config if cert doesn't exist
