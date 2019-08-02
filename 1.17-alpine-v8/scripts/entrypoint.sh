@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
 # Write each domain name to a text file to be read by certbot container
-text-dump append --file-path /etc/letsencrypt/domains.txt --data "${domain}" --split ' ' --unique --skip 'localhost'
+text-dump append \
+    --file-path /etc/letsencrypt/domains.txt \
+    --data "${domain}" \
+    --split ' ' \
+    --unique --skip 'localhost'
 
 # Configure AWS creds
 if [[ ${aws_s3} -gt 0 ]]
