@@ -12,8 +12,8 @@ else
         # Pull certs from AWS S3
         # if the certs don't exist, dummy certs should remain?
         awss3 download --bucket ${aws_s3_bucket} \
-            --local_path /etc/letsencrypt/archive/${domain_current}/ \
-            --remote_path archive/${domain_current}/ \
+            --local_path /etc/letsencrypt/archive/${domain_current} \
+            --remote_path archive/${domain_current} \
             --recursive
 
         # Ensure that certs have been pulled and exist
@@ -22,8 +22,8 @@ else
             # Pull certs from AWS S3
             # if the certs don't exist, dummy certs should remain?
             awss3 download --bucket ${aws_s3_bucket} \
-                --local_path /etc/letsencrypt/archive/${domain_current}/ \
-                --remote_path archive/${domain_current}/ \
+                --local_path /etc/letsencrypt/archive/${domain_current} \
+                --remote_path archive/${domain_current} \
                 --recursive
             awss3 download --bucket ${aws_s3_bucket} \
                 --local_path /etc/letsencrypt/renewal/${domain_current}.conf \
