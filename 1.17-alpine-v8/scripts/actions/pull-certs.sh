@@ -18,7 +18,7 @@ else
 
         # Ensure that certs have been pulled and exist
         until [[ -f /etc/letsencrypt/renewal/${domain_current}.conf ]] || [[ ${attempts} -eq ${max_attempts} ]]; do
-            echo -e "Cert download attempt #$(( attempts++ ))... \c"
+            echo -e "Cert download attempt #$(( attempts++ ))..."
             # Pull certs from AWS S3
             # if the certs don't exist, dummy certs should remain?
             awss3 download --bucket ${aws_s3_bucket} \
