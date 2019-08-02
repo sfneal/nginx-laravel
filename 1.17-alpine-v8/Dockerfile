@@ -41,7 +41,9 @@ RUN apk update && apk add \
 
 # Install replace_domain & awsutils-s3
 COPY ./requirements.txt ./requirements.txt
-RUN pip3 install --upgrade pip && pip3 install -r ./requirements.txt && rm ./requirements.txt
+RUN pip3 install --upgrade pip \
+    && pip3 install -r ./requirements.txt \
+    && rm ./requirements.txt
 
 # Copy configuration
 COPY ./scripts/ /scripts/
