@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 domain_current=${1}
+max_attempts=6
+attempts=1
 
 if echo ${domain_current} | grep -q "localhost" ; then
     echo "Skipping cert pull for domain ${domain_current} because it is for a localhost"
 else
-    echo "Not a localhost domain ${domain_current}"
+    echo "Pulling SSL certs for domain ${domain_current}"
     if [[ ${aws_s3} -ne 0 ]] && [[ ${aws_s3_download} -ne 0 ]]; then
         # Pull certs from AWS S3
         # if the certs don't exist, dummy certs should remain?
@@ -13,9 +15,20 @@ else
             --local_path /etc/letsencrypt/archive/${domain_current}/ \
             --remote_path archive/${domain_current}/ \
             --recursive
-        awss3 download --bucket ${aws_s3_bucket} \
-            --local_path /etc/letsencrypt/renewal/${domain_current}.conf \
-            --remote_path renewal/${domain_current}.conf
+
+        # Ensure that certs have been pulled and exist
+        until [[ -f /etc/letsencrypt/renewal/${domain_current}.conf ]] || [[ ${attempts} -eq ${max_attempts} ]]; do
+            echo -e "Cert download attempt #$(( attempts++ ))... \c"
+            # Pull certs from AWS S3
+            # if the certs don't exist, dummy certs should remain?
+            awss3 download --bucket ${aws_s3_bucket} \
+                --local_path /etc/letsencrypt/archive/${domain_current}/ \
+                --remote_path archive/${domain_current}/ \
+                --recursive
+            awss3 download --bucket ${aws_s3_bucket} \
+                --local_path /etc/letsencrypt/renewal/${domain_current}.conf \
+                --remote_path renewal/${domain_current}.conf
+        done
 
         # Fix symbolic links between 'live' and 'archive' files
         # Find each file ending with '.pem' in the live directory
