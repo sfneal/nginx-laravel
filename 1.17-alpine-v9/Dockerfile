@@ -1,4 +1,5 @@
 FROM nginx:1.17-alpine
+MAINTAINER Stephen Neal <stephen@stephenneal.net>
 
 # Application domains, service/container name and root directory
 ENV domain=example.com
