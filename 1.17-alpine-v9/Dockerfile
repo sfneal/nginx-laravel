@@ -1,13 +1,3 @@
-FROM alpine:latest as base
-
-# Copy pull-tls script
-COPY ./scripts/actions/pull-tls.sh /scripts/pull-tls.sh
-
-# Update OS and install curl then pull tls certs
-RUN apk update && apk add curl && sh /scripts/pull-tls.sh
-
-
-
 FROM nginx:1.17-alpine
 
 # Application domains, service/container name and root directory
@@ -47,7 +37,7 @@ RUN pip3 install --upgrade pip \
 
 # Copy configuration
 COPY ./scripts/ /scripts/
-COPY ./default.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx/ /etc/nginx/
 
 ENTRYPOINT ["bash"]
 CMD ["/scripts/entrypoint.sh"]
