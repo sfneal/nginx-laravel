@@ -21,9 +21,6 @@ ENV aws_access_key_id=""
 ENV aws_secret_access_key=""
 ENV aws_region_name=""
 
-# Copy TLS parameters from base
-COPY --from=base /etc/nginx/ /etc/nginx/
-
 # Update OS then install openssl, curl
 RUN apk update && apk add \
     bash \
