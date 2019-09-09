@@ -9,9 +9,19 @@ echo "## Enabling nginx .conf for ${domain_current}..."
 # Use 'template-http.conf' instead of 'template-https.conf' if env var https_disabled is set to 1
 if [[ ${https_disabled} -gt 0 ]]
 then
+    echo "## HTTPS disabled"
     template_file=/scripts/actions/template-http.conf
 else
-    template_file=/scripts/actions/template-https.conf
+    if [[ ${cache_enabled} -gt 0 ]]
+    then
+        echo "## HTTPS enabled"
+        echo "## CACHE enabled"
+        template_file=/scripts/actions/template-https-cache.conf
+    else
+        echo "## HTTPS enabled"
+        echo "## CACHE disabled"
+        template_file=/scripts/actions/template-https.conf
+    fi
 fi
 
 # Copy nginx config template

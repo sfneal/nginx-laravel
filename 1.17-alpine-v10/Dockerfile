@@ -12,6 +12,9 @@ ENV validation_domain=validation.example.com
 # Disable HTTPS
 ENV https_disabled=0
 
+# Enable Caching
+ENV cache_enabled=0
+
 # AWS S3 creditentials
 ENV aws_s3=0
 ENV aws_s3_upload=0
