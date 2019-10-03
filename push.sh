@@ -15,3 +15,4 @@ docker push stephenneal/nginx-laravel:1.17-alpine-v7
 docker push stephenneal/nginx-laravel:1.17-alpine-v8
 docker push stephenneal/nginx-laravel:1.17-alpine-v9
 docker push stephenneal/nginx-laravel:1.17-alpine-v10
+docker push stephenneal/nginx-laravel:1.17-alpine-v11
