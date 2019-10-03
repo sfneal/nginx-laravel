@@ -41,7 +41,7 @@ for d in ${redirect_domain}; do
     url_redirect=(${d//:/ })
 
     # Copy nginx config template
-	cp /scripts/template-redirect.conf /etc/nginx/conf.d/${url_redirect[0]}.conf
+	cp /scripts/actions/template-redirect.conf /etc/nginx/conf.d/${url_redirect[0]}.conf
 
 	# Replace @DOMAIN placeholder in {domain}.conf with server name
 	replace_domain --domain ${url_redirect[0]} \
