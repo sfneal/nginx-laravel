@@ -16,3 +16,5 @@ docker build -t stephenneal/nginx-laravel:1.17-alpine-v8 "${DIR}"/1.17-alpine-v8
 docker build -t stephenneal/nginx-laravel:1.17-alpine-v9 "${DIR}"/1.17-alpine-v9/
 docker build -t stephenneal/nginx-laravel:1.17-alpine-v10 "${DIR}"/1.17-alpine-v10/
 docker build -t stephenneal/nginx-laravel:1.17-alpine-v11 "${DIR}"/1.17-alpine-v11/
+docker build -t stephenneal/nginx-laravel:1.18-alpine-v1 "${DIR}"/1.18-alpine-v1/
+docker build -t stephenneal/nginx-laravel:1.19-alpine-v1 "${DIR}"/1.19-alpine-v1/
