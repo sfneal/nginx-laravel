@@ -1,0 +1,8 @@
+services:
+  - docker
+
+script:
+  - sh build.sh
+
+after_script:
+  - docker images
