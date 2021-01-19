@@ -34,7 +34,7 @@ webserver:
   environment:
     - domain=test.localhost example.com          # declare domains that the webserver should listen on
     - service=app                                # PHP Laravel application container name
-    - validation_domain=validation.hpadesign.com # validation domain name
+    - validation_domain=validation.example.com   # validation domain name
     - aws_s3=1                                   # enable AWS S3 certificate pulling
     - aws_s3_upload=0                            # enable uploading new certificates (set to 0 in dev environments)
     - aws_s3_download=1                          # enable downloading existing certificates
