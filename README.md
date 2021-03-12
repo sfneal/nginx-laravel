@@ -1,4 +1,4 @@
-# stephenneal/nginx-laravel
+# sfneal/nginx-laravel
 
 [![Build Status](https://travis-ci.com/sfneal/nginx-laravel.svg?branch=master&style=flat-square)](https://travis-ci.com/sfneal/nginx-laravel)
 [![Total Downloads](https://img.shields.io/docker/pulls/stephenneal/nginx-laravel?style=flat-square)](https://hub.docker.com/r/stephenneal/nginx-laravel)
