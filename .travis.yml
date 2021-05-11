@@ -9,22 +9,22 @@ env:
     - secure: uJeDJaA1HP9qlQPG6aT0FRb8XpsZO054U6P9gzeNId+Os004eRgUAKEkcqlzTkiL7Fas90Jro6S46iHTiuOx5aKITPWa8/ihL8HU05biIMOYJxb8hZD8riiVLVoozwrnjm54n1meBAk9F4k4i5A9LV4mpWGeon6eF2dx41hYWLptZLaTpsttu8OOQyZQuDujPXMC43iHU3hr+oAh82/SeBElqEAYQlwxBaEAJgbss+YxkMFgKOwmwRMmDTp9RqdUu4ADCeC5f3b+CI3qpLdGOXl2rt3CPLnQpVQ/0VtZZbNuDYH9ryc2DrWKUckumPY3PbBItiJIK35cSKgE8OxsWDJj39gOTrxuflEC79n/kL+15snVUaYPZSWH9TKxxZ5F/SfP49U/OOVX7rzfI6v1vzZtfHqYMGZWoM26+p2gRkf1K82Zv9lSSI/rGfNEi8UxUpuUfILlTc6FO+AEeto5p+Rxf3isAJkA3kYi7hxikV47GOgeJM73t53DzfMMad13hjRlnBTzQZE6/MCH+7spM1w6aXYJFiu6wP23EiDNPJuYRCzbn7spY4VQe3tlvD3vxR0EXfF3rc+MVRLz7JJ0gU0rZGibBK+52L+Q5z04kC/3HyMBLQ8PS1omOhJ6OUwFjDZ9xbi10qH8nBzKcP4lDzqe62qzLkrCFutg/VqFzog=
 
   matrix:
-    - TAG=1.15-alpine
-    - TAG=1.16-alpine
-    - TAG=1.17
-    - TAG=1.17-alpine-v1
-    - TAG=1.17-alpine-v2
-    - TAG=1.17-alpine-v3
-    - TAG=1.17-alpine-v4
-    - TAG=1.17-alpine-v5
-    - TAG=1.17-alpine-v6
-    - TAG=1.17-alpine-v7
-    - TAG=1.17-alpine-v8
-    - TAG=1.17-alpine-v9
-    - TAG=1.17-alpine-v10
-    - TAG=1.17-alpine-v11
-    - TAG=1.18-alpine-v1
     - TAG=1.19-alpine-v1
+    - TAG=1.18-alpine-v1
+    - TAG=1.17-alpine-v11
+    - TAG=1.17-alpine-v10
+    - TAG=1.17-alpine-v9
+    - TAG=1.17-alpine-v8
+    - TAG=1.17-alpine-v7
+    - TAG=1.17-alpine-v5
+    - TAG=1.17-alpine-v4
+    - TAG=1.17-alpine-v6
+    - TAG=1.17-alpine-v3
+    - TAG=1.17-alpine-v2
+    - TAG=1.17-alpine-v1
+    - TAG=1.17
+    - TAG=1.16-alpine
+    - TAG=1.15-alpine
 
 before_script:
   - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
