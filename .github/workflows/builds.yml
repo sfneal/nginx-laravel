@@ -1,0 +1,46 @@
+name: Docker Build
+
+on: [push, pull_request]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest]
+                tag: [
+                    1.15-alpine,
+                    1.16-alpine,
+                    1.17,
+                    1.17-alpine-v1,
+                    1.17-alpine-v2,
+                    1.17-alpine-v3,
+                    1.17-alpine-v4,
+                    1.17-alpine-v5,
+                    1.17-alpine-v6,
+                    1.17-alpine-v7,
+                    1.17-alpine-v8,
+                    1.17-alpine-v9,
+                    1.17-alpine-v10,
+                    1.17-alpine-v11,
+                    1.18-alpine-v1,
+                    1.19-alpine-v1,
+                    1.20-alpine-v1,
+                    1.21-alpine-v1,
+                ]
+
+        name: TAG-${{ matrix.tag }}
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v1
+
+            -   name: Authenticate Docker Hub
+                run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+            -   name: Build Docker Image
+                run: sh build.sh ${{ matrix.tag }}
+
+            -   name: Show Docker Images
+                run: docker images -a --filter='dangling=false' --format '{{.Repository}}:{{.Tag}}\t{{.Size}}'
