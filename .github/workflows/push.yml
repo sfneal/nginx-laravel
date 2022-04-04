@@ -12,27 +12,10 @@ jobs:
             matrix:
                 os: [ubuntu-latest]
                 tag: [
-                    1.15-alpine,
-                    1.16-alpine,
-                    1.17,
-                    1.17-alpine-v1,
-                    1.17-alpine-v2,
-                    1.17-alpine-v3,
-                    1.17-alpine-v4,
-                    1.17-alpine-v5,
-                    1.17-alpine-v6,
-                    1.17-alpine-v7,
-                    1.17-alpine-v8,
-                    1.17-alpine-v9,
-                    1.17-alpine-v10,
-                    1.17-alpine-v11,
-                    1.18-alpine-v1,
-                    1.19-alpine-v1,
-                    1.20-alpine-v1,
                     1.21-alpine-v1,
                 ]
 
-        name: TAG-${{ matrix.tag }}
+        name: Docker Push | TAG - ${{ matrix.tag }}
 
         steps:
             -   name: Checkout code

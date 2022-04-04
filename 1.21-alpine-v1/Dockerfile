@@ -4,7 +4,7 @@ MAINTAINER Stephen Neal <stephen@stephenneal.net>
 # Application domains, service/container name and root directory
 ENV domain=example.com
 ENV service=app
-ENV root=/var/www/public
+ENV root=/var/www/dist
 
 # Validation domain
 ENV validation_domain=validation.example.com

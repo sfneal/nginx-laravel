@@ -1,17 +1,17 @@
-# sfneal/nginx-laravel
+# Inflection-Points/nginx-react
 
-[![Build Status](https://travis-ci.com/sfneal/nginx-laravel.svg?branch=master&style=flat-square)](https://travis-ci.com/sfneal/nginx-laravel)
-[![Total Downloads](https://img.shields.io/docker/pulls/stephenneal/nginx-laravel?style=flat-square)](https://hub.docker.com/r/stephenneal/nginx-laravel)
-[![Latest Version](https://img.shields.io/docker/v/stephenneal/nginx-laravel?sort=semver&style=flat-square)](https://hub.docker.com/r/stephenneal/nginx-laravel)
+[![Build Status](https://travis-ci.com/sfneal/nginx-react.svg?branch=master&style=flat-square)](https://travis-ci.com/sfneal/nginx-react)
+[![Total Downloads](https://img.shields.io/docker/pulls/Inflection-Points/nginx-react?style=flat-square)](https://hub.docker.com/r/Inflection-Points/nginx-react)
+[![Latest Version](https://img.shields.io/docker/v/Inflection-Points/nginx-react?sort=semver&style=flat-square)](https://hub.docker.com/r/Inflection-Points/nginx-react)
 
-nginx-laravel is a Nginx webserver for PHP Laravel applications that can be configured with a few environment variables.
+nginx-react is a Nginx webserver for React applications that can be configured with a few environment variables.
 
 ## Installation
 
 Docker images can be pulled using the Docker CLI.
 
 ```bash
-docker pull stephenneal/nginx-laravel:1.19-alpine-v1
+docker pull stephenneal/nginx-react:1.19-alpine-v1
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ Add a 'webserver' container for your PHP Laravel application.
 
 ```yaml
 webserver:
-  image: stephenneal/nginx-laravel:1.19-alpine-v1
+  image: Inflection-Points/nginx-react:1.19-alpine-v1
   container_name: webserver
   restart: unless-stopped
   tty: true
