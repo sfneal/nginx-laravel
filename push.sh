@@ -18,4 +18,5 @@ if [ "$TAG" != null ]
     sh "${DIR}"/build.sh
 
     docker push stephenneal/nginx-react:1.21-alpine-v1
+    docker push stephenneal/nginx-react:1.21-alpine-v1-dev
 fi

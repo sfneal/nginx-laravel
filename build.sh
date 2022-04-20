@@ -16,4 +16,5 @@ if [ "$TAG" != null ]
   # Build all images
   else
     docker build -t stephenneal/nginx-react:1.21-alpine-v1 "${DIR}"/1.21-alpine-v1/
+    docker build -t stephenneal/nginx-react:1.21-alpine-v1-dev "${DIR}"/1.21-alpine-v1-dev/
 fi

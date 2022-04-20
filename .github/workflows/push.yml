@@ -13,6 +13,7 @@ jobs:
                 os: [ubuntu-latest]
                 tag: [
                     1.21-alpine-v1,
+                    1.21-alpine-v1-dev,
                 ]
 
         name: Docker Push | TAG - ${{ matrix.tag }}
