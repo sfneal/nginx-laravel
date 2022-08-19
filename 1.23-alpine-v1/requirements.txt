@@ -1,0 +1,3 @@
+dirutility>=0.7.18
+replace_domain>=1.0.5
+awsutils-s3>=0.3.20
