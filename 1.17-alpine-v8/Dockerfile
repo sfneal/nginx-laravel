@@ -49,8 +49,5 @@ RUN pip3 install --upgrade pip \
 COPY ./scripts/ /scripts/
 COPY ./default.conf /etc/nginx/conf.d/default.conf
 
-# Tell docker that all future commands should run as the nginxusers nginxuser
-USER nginxuser
-
 ENTRYPOINT ["bash"]
 CMD ["/scripts/entrypoint.sh"]
