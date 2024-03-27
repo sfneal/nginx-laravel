@@ -35,4 +35,6 @@ if [ "$TAG" != null ]
     docker build -t stephenneal/nginx-laravel:1.21-alpine-v1 "${DIR}"/1.21-alpine-v1/
     docker build -t stephenneal/nginx-laravel:1.22-alpine-v1 "${DIR}"/1.22-alpine-v1/
     docker build -t stephenneal/nginx-laravel:1.23-alpine-v1 "${DIR}"/1.23-alpine-v1/
+    docker build -t stephenneal/nginx-laravel:1.24-alpine "${DIR}"/1.24-alpine/
+    docker build -t stephenneal/nginx-laravel:1.25-alpine "${DIR}"/1.25-alpine/
 fi

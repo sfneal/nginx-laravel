@@ -37,4 +37,6 @@ if [ "$TAG" != null ]
     docker push stephenneal/nginx-laravel:1.21-alpine-v1
     docker push stephenneal/nginx-laravel:1.22-alpine-v1
     docker push stephenneal/nginx-laravel:1.23-alpine-v1
+    docker push stephenneal/nginx-laravel:1.24-alpine
+    docker push stephenneal/nginx-laravel:1.25-alpine
 fi
