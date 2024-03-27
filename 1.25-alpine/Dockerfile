@@ -1,4 +1,4 @@
-FROM nginx:1.20-alpine
+FROM nginx:1.25-alpine
 MAINTAINER Stephen Neal <stephen@stephenneal.net>
 
 # Create a group and user
