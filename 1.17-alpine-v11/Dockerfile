@@ -1,6 +1,9 @@
 FROM nginx:1.17-alpine
 MAINTAINER Stephen Neal <stephen@stephenneal.net>
 
+# Create a group and user
+RUN addgroup -S nginxusers && adduser -S nginxuser -G nginxusers
+
 # Application domains, service/container name and root directory
 ENV domain=example.com
 ENV service=app
@@ -36,6 +39,9 @@ RUN pip3 install --upgrade pip \
 # Copy configuration
 COPY ./scripts/ /scripts/
 COPY ./nginx/ /etc/nginx/
+
+# Tell docker that all future commands should run as the nginxusers nginxuser
+USER nginxuser
 
 ENTRYPOINT ["bash"]
 CMD ["/scripts/entrypoint.sh"]
