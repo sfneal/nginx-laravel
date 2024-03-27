@@ -1,4 +1,4 @@
-FROM nginx:1.24-alpine
+FROM nginx:1.25-alpine
 MAINTAINER Stephen Neal <stephen@stephenneal.net>
 
 # Application domains, service/container name and root directory
