@@ -36,6 +36,6 @@ six==1.15.0
 tldextract==5.1.2
 toml==0.10.2
 tqdm==4.66.4
-urllib3==1.26.5
+urllib3==1.26.18
 validators==0.28.1
 webencodings==0.5.1
