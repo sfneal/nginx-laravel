@@ -13,7 +13,7 @@ distro==1.6.0
 docutils==0.16
 filelock==3.14.0
 html5lib==1.1
-idna==3.3
+idna==3.7
 jmespath==1.0.1
 lockfile==0.12.2
 looptools==1.2.4
