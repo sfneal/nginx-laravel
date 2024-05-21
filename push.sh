@@ -28,7 +28,7 @@ if [ "$TAG" != null ]
   # Build & push all images
   else
     sh "${DIR}"/build.sh
-z
+
     docker push stephenneal/nginx-laravel:1.15-alpine
     docker push stephenneal/nginx-laravel:1.16-alpine
     docker push stephenneal/nginx-laravel:1.17
