@@ -11,7 +11,23 @@ if [ "$TAG" != null ]
 
   # Only build one image
   then
-    docker build -t stephenneal/nginx-laravel:"${TAG}" "${DIR}"/"${TAG}"/
+    FILE="${DIR}"/"${TAG}"/_docker-tags.txt
+
+    # Check if image has multiple tags (indicated by file existence)
+    if [ -f "${FILE}" ]; then
+      echo "${TAG} directory has multiple Docker tags"
+
+      TAGS=""
+      while IFS= read -r line; do
+        TAGS="${TAGS} -t stephenneal/nginx-laravel:${line}"
+      done < "${DIR}"/"${TAG}"/_docker-tags.txt
+
+      COMMAND="docker build ${TAGS} ${DIR}/${TAG}/"
+      echo "${COMMAND}"
+      $(echo "${COMMAND}")
+    else
+      docker build -t stephenneal/nginx-laravel:"${TAG}" "${DIR}"/"${TAG}"/
+    fi
 
   # Build all images
   else
@@ -29,12 +45,12 @@ if [ "$TAG" != null ]
     docker build -t stephenneal/nginx-laravel:1.17-alpine-v9 "${DIR}"/1.17-alpine-v9/
     docker build -t stephenneal/nginx-laravel:1.17-alpine-v10 "${DIR}"/1.17-alpine-v10/
     docker build -t stephenneal/nginx-laravel:1.17-alpine-v11 "${DIR}"/1.17-alpine-v11/
-    docker build -t stephenneal/nginx-laravel:1.18-alpine-v1 "${DIR}"/1.18-alpine-v1/
-    docker build -t stephenneal/nginx-laravel:1.19-alpine-v1 "${DIR}"/1.19-alpine-v1/
-    docker build -t stephenneal/nginx-laravel:1.20-alpine-v1 "${DIR}"/1.20-alpine-v1/
-    docker build -t stephenneal/nginx-laravel:1.21-alpine-v1 "${DIR}"/1.21-alpine-v1/
-    docker build -t stephenneal/nginx-laravel:1.22-alpine-v1 "${DIR}"/1.22-alpine-v1/
-    docker build -t stephenneal/nginx-laravel:1.23-alpine-v1 "${DIR}"/1.23-alpine-v1/
+    docker build -t stephenneal/nginx-laravel:1.18-alpine "${DIR}"/1.18-alpine/
+    docker build -t stephenneal/nginx-laravel:1.19-alpine "${DIR}"/1.19-alpine/
+    docker build -t stephenneal/nginx-laravel:1.20-alpine "${DIR}"/1.20-alpine/
+    docker build -t stephenneal/nginx-laravel:1.21-alpine "${DIR}"/1.21-alpine/
+    docker build -t stephenneal/nginx-laravel:1.22-alpine "${DIR}"/1.22-alpine/
+    docker build -t stephenneal/nginx-laravel:1.23-alpine "${DIR}"/1.23-alpine/
     docker build -t stephenneal/nginx-laravel:1.24-alpine "${DIR}"/1.24-alpine/
     docker build -t stephenneal/nginx-laravel:1.25-alpine "${DIR}"/1.25-alpine/
 fi

@@ -1,0 +1,2 @@
+1.18-alpine
+1.18-alpine-v1
