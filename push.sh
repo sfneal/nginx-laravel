@@ -11,12 +11,24 @@ if [ "$TAG" != null ]
   # Only build & push one image
   then
     sh "${DIR}"/build.sh "${TAG}"
-    docker push stephenneal/nginx-laravel:"${TAG}"
+
+    FILE="${DIR}"/"${TAG}"/_docker-tags.txt
+
+    # Check if image has multiple tags (indicated by file existence)
+    if [ -f "${FILE}" ]; then
+      echo "${TAG} directory has multiple Docker tags"
+
+      while IFS= read -r line; do
+        echo docker push stephenneal/nginx-laravel:"${line}"
+      done < "${DIR}"/"${TAG}"/_docker-tags.txt
+    else
+      echo docker push stephenneal/nginx-laravel:"${TAG}"
+    fi
 
   # Build & push all images
   else
     sh "${DIR}"/build.sh
-
+z
     docker push stephenneal/nginx-laravel:1.15-alpine
     docker push stephenneal/nginx-laravel:1.16-alpine
     docker push stephenneal/nginx-laravel:1.17

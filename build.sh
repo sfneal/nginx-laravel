@@ -11,7 +11,23 @@ if [ "$TAG" != null ]
 
   # Only build one image
   then
-    docker build -t stephenneal/nginx-laravel:"${TAG}" "${DIR}"/"${TAG}"/
+    FILE="${DIR}"/"${TAG}"/_docker-tags.txt
+
+    # Check if image has multiple tags (indicated by file existence)
+    if [ -f "${FILE}" ]; then
+      echo "${TAG} directory has multiple Docker tags"
+
+      TAGS=""
+      while IFS= read -r line; do
+        TAGS="${TAGS} -t stephenneal/nginx-laravel:${line}"
+      done < "${DIR}"/"${TAG}"/_docker-tags.txt
+
+      COMMAND="docker build ${TAGS} ${DIR}/${TAG}/"
+      echo "${COMMAND}"
+      $(echo "${COMMAND}")
+    else
+      docker build -t stephenneal/nginx-laravel:"${TAG}" "${DIR}"/"${TAG}"/
+    fi
 
   # Build all images
   else
