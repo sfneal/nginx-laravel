@@ -43,12 +43,12 @@ if [ "$TAG" != null ]
     docker push stephenneal/nginx-laravel:1.17-alpine-v9
     docker push stephenneal/nginx-laravel:1.17-alpine-v10
     docker push stephenneal/nginx-laravel:1.17-alpine-v11
-    docker push stephenneal/nginx-laravel:1.18-alpine-v1
-    docker push stephenneal/nginx-laravel:1.19-alpine-v1
-    docker push stephenneal/nginx-laravel:1.20-alpine-v1
-    docker push stephenneal/nginx-laravel:1.21-alpine-v1
-    docker push stephenneal/nginx-laravel:1.22-alpine-v1
-    docker push stephenneal/nginx-laravel:1.23-alpine-v1
+    docker push stephenneal/nginx-laravel:1.18-alpine
+    docker push stephenneal/nginx-laravel:1.19-alpine
+    docker push stephenneal/nginx-laravel:1.20-alpine
+    docker push stephenneal/nginx-laravel:1.21-alpine
+    docker push stephenneal/nginx-laravel:1.22-alpine
+    docker push stephenneal/nginx-laravel:1.23-alpine
     docker push stephenneal/nginx-laravel:1.24-alpine
     docker push stephenneal/nginx-laravel:1.25-alpine
 fi
