@@ -32,6 +32,7 @@ jobs:
                     1.23-alpine,
                     1.24-alpine,
                     1.25-alpine,
+                    1.26-alpine,
                 ]
 
         name: TAG-${{ matrix.tag }}
