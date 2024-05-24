@@ -25,7 +25,8 @@ ENV aws_region_name=""
 RUN apk update && apk add \
     bash \
     openssl \
-    python3
+    python3 \
+    py3-six
 
 # Copy python dependencies list
 COPY ./requirements.txt ./requirements.txt

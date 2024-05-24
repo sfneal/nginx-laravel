@@ -26,7 +26,10 @@ RUN apk update && apk add \
     bash \
     openssl \
     python3 \
-    py3-pip
+    py3-pip \
+    py3-distlib \
+    py3-packaging \
+    py3-six
 
 # Copy python dependencies list
 COPY ./requirements.txt ./requirements.txt
