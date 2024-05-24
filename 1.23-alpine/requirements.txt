@@ -10,7 +10,7 @@ filelock==3.14.0
 idna==3.7
 jmespath==1.0.1
 looptools==1.2.4
-packaging==21.3
+packaging==24.0
 pyasn1==0.6.0
 pyparsing==3.0.9
 python-dateutil==2.9.0.post0
