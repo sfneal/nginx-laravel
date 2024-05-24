@@ -1,5 +1,5 @@
 awscli==1.32.103
-awsutils-s3==0.3.20
+awsutils-s3==0.4.1
 botocore==1.34.103
 certifi==2024.2.2
 charset-normalizer==3.3.2
