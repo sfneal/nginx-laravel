@@ -1,6 +1,6 @@
-awscli==1.32.104
+awscli==1.32.113
 awsutils-s3==1.0.0
-botocore==1.34.104
+botocore==1.34.113
 certifi==2024.2.2
 charset-normalizer==3.3.2
 colorama==0.4.6
