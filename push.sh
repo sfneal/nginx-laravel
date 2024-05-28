@@ -19,10 +19,10 @@ if [ "$TAG" != null ]
       echo "${TAG} directory has multiple Docker tags"
 
       while IFS= read -r line; do
-        echo docker push stephenneal/nginx-laravel:"${line}"
+        docker push stephenneal/nginx-laravel:"${line}"
       done < "${DIR}"/"${TAG}"/_docker-tags.txt
     else
-      echo docker push stephenneal/nginx-laravel:"${TAG}"
+      docker push stephenneal/nginx-laravel:"${TAG}"
     fi
 
   # Build & push all images
