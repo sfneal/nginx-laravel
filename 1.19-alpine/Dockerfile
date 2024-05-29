@@ -26,6 +26,7 @@ RUN apk update && apk add \
     bash \
     openssl \
     python3 \
+    py3-pep517 \
     py3-pip \
     py3-distlib \
     py3-packaging \
