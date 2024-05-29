@@ -1,7 +1,7 @@
 appdirs==1.4.4
-awscli==1.32.113
+awscli==1.32.114
 awsutils-s3==1.0.0
-botocore==1.34.113
+botocore==1.34.114
 CacheControl==0.14.0
 certifi==2024.2.2
 charset-normalizer==3.3.2
