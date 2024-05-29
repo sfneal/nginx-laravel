@@ -40,9 +40,10 @@ RUN apk update && apk add \
     python3
 
 # Install replace_domain & awsutils-s3
-COPY ./requirements.txt ./requirements.txt
+COPY ["requirements-base.txt", "requirements.txt", "./"]
 RUN pip3 install --upgrade pip \
     && pip3 install -r ./requirements.txt \
+    && rm ./requirements-base.txt \
     && rm ./requirements.txt
 
 # Copy configuration
