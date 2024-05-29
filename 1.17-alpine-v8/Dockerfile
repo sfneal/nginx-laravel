@@ -39,7 +39,7 @@ RUN apk update && apk add \
     openssl \
     python3
 
-# Install replace_domain & awsutils-s3
+# Install Python dependencies
 COPY ["requirements-base.txt", "requirements.txt", "./"]
 RUN pip3 install --upgrade pip \
     && pip3 install -r ./requirements.txt \
