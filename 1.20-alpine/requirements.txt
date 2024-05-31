@@ -16,7 +16,7 @@ idna==3.7
 jmespath==1.0.1
 lockfile==0.12.2
 looptools==1.2.4
-msgpack==1.0.2
+msgpack==1.0.8
 ordered-set==4.1.0
 packaging>=20.9
 pep517>=0.10.0
