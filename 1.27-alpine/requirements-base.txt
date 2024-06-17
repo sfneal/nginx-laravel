@@ -1,0 +1,3 @@
+awsutils-s3==1.0.0
+dirutility==0.7.20
+replace_domain==1.1.0
