@@ -1,7 +1,7 @@
 -r requirements-base.txt
 appdirs==1.4.4
-awscli==1.33.26
-botocore==1.34.144
+awscli==1.33.30
+botocore==1.34.148
 CacheControl==0.14.0
 certifi==2024.7.4
 charset-normalizer==3.3.2
