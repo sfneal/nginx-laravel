@@ -1,7 +1,7 @@
 -r requirements-base.txt
 appdirs==1.4.4
-awscli==1.33.37
-botocore==1.34.155
+awscli==1.33.40
+botocore==1.34.158
 CacheControl==0.14.0
 chardet==5.2.0
 colorama==0.4.6
