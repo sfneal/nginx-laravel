@@ -1,6 +1,6 @@
 -r requirements-base.txt
-awscli==1.33.41
-botocore==1.34.159
+awscli==1.33.42
+botocore==1.34.160
 certifi==2024.7.4
 charset-normalizer==3.3.2
 colorama==0.4.6
