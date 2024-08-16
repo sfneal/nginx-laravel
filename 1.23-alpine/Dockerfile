@@ -1,5 +1,5 @@
 FROM nginx:1.23-alpine
-MAINTAINER Stephen Neal <stephen@stephenneal.net>
+LABEL org.opencontainers.image.authors="stephen@stephenneal.net"
 
 # Application domains, service/container name and root directory
 ENV domain=example.com
