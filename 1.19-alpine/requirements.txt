@@ -21,7 +21,7 @@ packaging>=20.9
 pep517>=0.9.1
 progress==1.6
 pyasn1==0.6.0
-pyparsing==3.1.2
+pyparsing==3.1.4
 python-dateutil==2.9.0.post0
 pytoml==0.1.21
 PyYAML==6.0.2
