@@ -61,7 +61,7 @@ if [[ ! -f ${fullchain} ]] || [[ ! -f ${privkey} ]]; then
     # Create dummy certificate for ${domain_current}
     echo "Missing SSL certs for ${domain_current}: fullchain1.pem privkey1.pem"
     echo "Creating dummy certificate for ${domain_current}..."
-    openssl req -x509 -nodes -newkey rsa:1024 -days 1 \
+    openssl req -x509 -nodes -newkey rsa:2048 -days 1 \
         -keyout "/etc/letsencrypt/live/${domain_current}/privkey.pem" \
         -out "/etc/letsencrypt/live/${domain_current}/fullchain.pem" \
         -subj "/CN=localhost"

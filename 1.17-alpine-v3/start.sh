@@ -9,7 +9,7 @@ mkdir -m 777 -p /etc/letsencrypt/renewal/${domain}/
 
 # Create dummy certificate for ${domain}
 echo "Creating dummy certificate for ${domain}"
-openssl req -x509 -nodes -newkey rsa:1024 -days 1 \
+openssl req -x509 -nodes -newkey rsa:2048 -days 1 \
     -keyout "/etc/letsencrypt/live/${domain}/privkey.pem" \
     -out "/etc/letsencrypt/live/${domain}/fullchain.pem" \
     -subj "/CN=localhost"
