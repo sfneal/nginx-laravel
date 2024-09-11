@@ -20,7 +20,7 @@ ordered-set==4.1.0
 packaging>=20.9
 pep517>=0.9.1
 progress==1.6
-pyasn1==0.6.0
+pyasn1==0.6.1
 pyparsing==3.1.4
 python-dateutil==2.9.0.post0
 pytoml==0.1.21
