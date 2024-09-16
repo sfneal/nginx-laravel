@@ -6,7 +6,7 @@ charset-normalizer==3.3.2
 colorama==0.4.6
 docutils==0.16
 filelock==3.16.0
-idna==3.8
+idna==3.10
 jmespath==1.0.1
 looptools==1.2.4
 packaging>=23.2
