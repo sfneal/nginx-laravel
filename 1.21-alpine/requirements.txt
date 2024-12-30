@@ -4,7 +4,7 @@ awscli==1.36.27
 botocore==1.35.86
 CacheControl==0.14.1
 certifi==2024.12.14
-charset-normalizer==3.4.0
+charset-normalizer==3.4.1
 colorama==0.4.6
 contextlib2==21.6.0
 distlib>=0.3.3
