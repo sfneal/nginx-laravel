@@ -6,6 +6,9 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # Optional TAG argument (if set, only the specified image will be built)
 TAG=${1:-null}
 
+# Optional PLATFORM argument (if none provided, both will be built)
+PLATFORM=${2:-"linux/amd64,linux/arm64"}
+
 # Check if the TAG variable is set
 if [ "$TAG" != null ]
 
@@ -22,11 +25,15 @@ if [ "$TAG" != null ]
         TAGS="${TAGS} -t stephenneal/nginx-laravel:${line}"
       done < "${DIR}"/"${TAG}"/_docker-tags.txt
 
-      COMMAND="docker build ${TAGS} ${DIR}/${TAG}/"
+      COMMAND="docker buildx build --load ${TAGS} --platform "${PLATFORM}" ${DIR}/${TAG}/"
       echo "${COMMAND}"
       $(echo "${COMMAND}")
     else
-      docker build -t stephenneal/nginx-laravel:"${TAG}" "${DIR}"/"${TAG}"/
+      docker buildx build \
+      	--load \
+      	-t stephenneal/nginx-laravel:"${TAG}" \
+      	--platform "${PLATFORM}" \
+      	"${DIR}"/"${TAG}"/
     fi
 
   # Build all images
