@@ -11,7 +11,7 @@ jmespath==1.0.1
 looptools==1.2.4
 packaging>=23.2
 pyasn1==0.6.1
-pyparsing==3.2.0
+pyparsing==3.2.1
 python-dateutil==2.9.0.post0
 PyYAML==6.0.2
 requests==2.32.3
