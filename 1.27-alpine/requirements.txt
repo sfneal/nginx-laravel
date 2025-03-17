@@ -5,7 +5,7 @@ certifi==2025.1.31
 charset-normalizer==3.4.1
 colorama==0.4.6
 docutils==0.16
-filelock==3.17.0
+filelock==3.18.0
 idna==3.10
 jmespath==1.0.1
 looptools==1.2.4
