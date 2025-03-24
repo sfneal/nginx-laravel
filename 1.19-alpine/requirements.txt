@@ -23,7 +23,7 @@ pep517>=0.9.1
 progress==1.6
 pyasn1==0.6.1
 pyparsing==3.1.4; python_version < "3.9"
-pyparsing==3.2.1; python_version >= "3.9"
+pyparsing==3.2.2; python_version >= "3.9"
 python-dateutil==2.9.0.post0
 pytoml==0.1.21
 PyYAML==6.0.2
