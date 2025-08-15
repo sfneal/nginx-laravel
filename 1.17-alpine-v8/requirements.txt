@@ -13,7 +13,7 @@ looptools==1.2.4
 pyasn1==0.6.1
 python-dateutil==2.9.0.post0
 PyYAML==6.0.2
-requests==2.32.3
+requests==2.32.4
 requests-file==2.1.0
 rsa==4.7.2
 s3transfer==0.11.4
