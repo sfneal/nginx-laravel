@@ -40,7 +40,6 @@ if [ "$TAG" != null ]
   else
     docker build -t stephenneal/nginx-laravel:1.15-alpine "${DIR}"/1.15-alpine/
     docker build -t stephenneal/nginx-laravel:1.16-alpine "${DIR}"/1.16-alpine/
-    docker build -t stephenneal/nginx-laravel:1.17 "${DIR}"/1.17/
     docker build -t stephenneal/nginx-laravel:1.17-alpine-v1 "${DIR}"/1.17-alpine-v1/
     docker build -t stephenneal/nginx-laravel:1.17-alpine-v2 "${DIR}"/1.17-alpine-v2/
     docker build -t stephenneal/nginx-laravel:1.17-alpine-v3 "${DIR}"/1.17-alpine-v3/
