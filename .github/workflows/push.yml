@@ -14,7 +14,6 @@ jobs:
                 tag: [
                     1.15-alpine,
                     1.16-alpine,
-                    1.17,
                     1.17-alpine-v1,
                     1.17-alpine-v2,
                     1.17-alpine-v3,
