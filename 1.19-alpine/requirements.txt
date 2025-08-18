@@ -1,14 +1,17 @@
 -r requirements-base.txt
 appdirs==1.4.4
-awscli==1.38.28
-botocore==1.37.28
+awscli==1.38.28; python_version < "3.9"
+botocore==1.37.28; python_version < "3.9"
+awscli==1.42.10; python_version >= "3.9"
+botocore==1.40.10; python_version >= "3.9"
 CacheControl==0.14.2
 chardet==5.2.0
 colorama==0.4.6
 contextlib2==21.6.0
 distlib>=0.3.1
 distro==1.9.0
-docutils==0.16
+docutils==0.16; python_version < "3.9"
+docutils==0.19; python_version >= "3.9"
 filelock==3.16.1; python_version < "3.9"
 filelock==3.18.0; python_version >= "3.9"
 html5lib==1.1
@@ -31,7 +34,8 @@ requests==2.32.3
 requests-file==2.1.0
 retrying==1.4.2
 rsa==4.7.2
-s3transfer==0.11.4
+s3transfer==0.11.4; python_version >= "3.9"
+s3transfer==0.13.1; python_version >= "3.9"
 six>=1.15.0
 tldextract==5.1.2; python_version <= "3.8"
 tldextract==5.3.0; python_version >= "3.9"
