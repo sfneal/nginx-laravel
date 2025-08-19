@@ -20,7 +20,7 @@ msgpack==1.1.1
 ordered-set==4.1.0
 packaging>=20.9
 pep517>=0.9.1
-progress==1.6
+progress==1.6.1
 pyasn1==0.6.1
 pyparsing==3.1.4; python_version < "3.9"
 pyparsing==3.2.3; python_version >= "3.9"
